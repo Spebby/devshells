@@ -4,10 +4,19 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+    zig = {
+      url = "github:mitchellh/zig-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    { nixpkgs, flake-utils, ... }:
+    {
+      nixpkgs,
+      flake-utils,
+      zig,
+      ...
+    }:
     flake-utils.lib.eachDefaultSystem (
       system:
       let
@@ -16,8 +25,10 @@
           config.allowUnfree = true;
         };
 
+        zigpkgs = import zig { inherit system; };
+
         tree = import ./modules {
-          inherit pkgs;
+          inherit pkgs zigpkgs;
           inherit (pkgs) lib;
         };
 

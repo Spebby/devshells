@@ -8,6 +8,7 @@
       rustfmt
       clippy
       rust-analyzer
+      gcc
     ];
   };
 }
