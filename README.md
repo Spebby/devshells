@@ -15,7 +15,15 @@ The following packages are provided for Linux, Darwin (x86_64/aarch64)
 - lang-zig
 - lang-full
 
-## Minimum Flake
+## Usage
+
+### Nix Shell
+
+You can run any of these development shells on your system using `nix develop`.
+`nix develop github:Spebby/devshells#lang-*`,
+replacing the asterisk with whatever package you'd like to run.
+
+### Minimum Flake
 
 ```nix
 {
