@@ -1,4 +1,4 @@
-{ pkgs, zigpkgs, ... }:
+{ pkgs, ... }:
 {
   zig = pkgs.buildEnv {
     name = "lang-zig";
